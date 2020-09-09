@@ -1,3 +1,5 @@
+login: sudo -i
+
 ## 1 Installing Vagrant  
  prereq:  
   - sudo apt install virtualbox  
