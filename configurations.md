@@ -27,6 +27,7 @@ login: sudo -i
   - kubectl exec -n jenkins -it <Jenkins_pod> -- /bin/bash        #login pod  
     - cat /var/jenkins_home/secrets/initialAdminPassword          #get admin pwd  
     - paste pwd on http://23.101.51.254:30100/                    #uname: admin  
+    - create new admin user                                       #uname: lsezer pwd: lsezer  
   
   ## 4 Install Nexus  
   - mkdir /tmp/volume-local  
@@ -52,4 +53,14 @@ login: sudo -i
   - kubectl exec -n nexus -it <nexus_pod> -- /bin/bash      #login pod   
     - cat /nexus-data/admin.password                          #get admin pwd  
     - paste pwd on http://23.101.51.254:30001/nexus           #uname: admin  
+    - change admin password                                   #uname: admin pwd: lsezer  
   
+  ## 5 Create CI pipeline  
+ - Browse http://23.101.51.254:30100/  
+ - login with "lsezer" user  
+ - Create "New item"  
+ - select Multibranch Pipeline"  
+ - Enter name as "CI_build"  
+ - Configure pipeline Branch Sources as https://github.com/jenkins-docs/simple-java-maven-app with no credential because it is public repository  
+ - Add behaviors "Discover branches", "Discover pull requests from origin", "Discover pull requests from forks"  
+ - Build Configuration "by jenkinsfile", set scripth path "jenkins/Jenkinsfile" because "simple-java-maven-app" jenkinsfile relative path to the git  
