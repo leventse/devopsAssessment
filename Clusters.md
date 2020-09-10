@@ -1,0 +1,5 @@
+- ssh ile bağlanılır: 23.101.51.254:22  
+- "sudo -i" komutu çalıştırılarak root kullanıcısına geçilir  
+- "cd /home/stikuser/k8s_ubuntu/" vagrant klasöre gidilir  
+- "vagrant ssh kmaster" komutu ile cluster master node a giriş yapılır
+- "kubectl get nodes" komutu ile clusterda bulunan master ve 2 worker node görüntülenir
