@@ -4,8 +4,8 @@
 echo "[TASK 1] Update /etc/hosts file"
 cat >>/etc/hosts<<EOF
 23.101.51.254 kmaster.example.com kmaster
-23.101.51.255 kworker1.example.com kworker1
-23.101.51.256 kworker2.example.com kworker2
+23.101.51.251 kworker1.example.com kworker1
+23.101.51.252 kworker2.example.com kworker2
 EOF
 
 
