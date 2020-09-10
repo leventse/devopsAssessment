@@ -49,7 +49,7 @@ login: sudo -i
   - touch /home/vagrant/k8sfiles/nexusService  
   - nano /home/vagrant/k8sfiles/nexusService  
   - kubectl create -f /home/vagrant/k8sfiles/nexusService  
-  -  kubectl exec -n nexus -it <nexus_pod> -- /bin/bash      #login pod   
-   - cat /nexus-data/admin.password                          #get admin pwd  
-   - paste pwd on http://23.101.51.254:30001/nexus           #uname: admin  
+  - kubectl exec -n nexus -it <nexus_pod> -- /bin/bash      #login pod   
+    - cat /nexus-data/admin.password                          #get admin pwd  
+    - paste pwd on http://23.101.51.254:30001/nexus           #uname: admin  
   
