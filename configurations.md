@@ -25,5 +25,25 @@ login: sudo -i
   - nano /home/vagrant/k8sfiles/jenkins-service.yaml  
   - kubectl create -f /home/vagrant/k8sfiles/jenkins-service.yaml --namespace jenkins  
   
+  ## 4 Install Nexus  
+  - mkdir /tmp/volume-local  
+  - chmod -R 777 /tmp/volume-local  
+  - kubectl create namespace nexus  
+  - kubectl create namespace devops-tools  
   
+  - touch /home/vagrant/k8sfiles/nexusPersistentVolume  
+  - nano /home/vagrant/k8sfiles/nexusPersistentVolume  
+  - kubectl create -f /home/vagrant/k8sfiles/nexusPersistentVolume  
+  
+  - touch /home/vagrant/k8sfiles/nexusPersistentVolumeClaim  
+  - nano /home/vagrant/k8sfiles/nexusPersistentVolumeClaim  
+  - kubectl create -f /home/vagrant/k8sfiles/nexusPersistentVolumeClaim  
+  
+  - touch /home/vagrant/k8sfiles/nexusDeployment  
+  - nano /home/vagrant/k8sfiles/nexusDeployment  
+  - kubectl create -f /home/vagrant/k8sfiles/nexusDeployment --namespace nexus  
+  
+  - touch /home/vagrant/k8sfiles/nexusService  
+  - nano /home/vagrant/k8sfiles/nexusService  
+  - kubectl create -f /home/vagrant/k8sfiles/nexusService  
   
