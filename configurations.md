@@ -24,8 +24,9 @@ login: sudo -i
   - touch /home/vagrant/k8sfiles/jenkins-service.yaml  
   - nano /home/vagrant/k8sfiles/jenkins-service.yaml  
   - kubectl create -f /home/vagrant/k8sfiles/jenkins-service.yaml --namespace jenkins 
-  - kubectl exec -n jenkins -it <Jenkins_pod> -- /bin/bash  
-    - cat /var/jenkins_home/secrets/initialAdminPassword
+  - kubectl exec -n jenkins -it <Jenkins_pod> -- /bin/bash        #login pod  
+    - cat /var/jenkins_home/secrets/initialAdminPassword          #get admin pwd  
+    - paste pwd on http://23.101.51.254:30100/                    #uname: admin  
   
   ## 4 Install Nexus  
   - mkdir /tmp/volume-local  
@@ -48,4 +49,7 @@ login: sudo -i
   - touch /home/vagrant/k8sfiles/nexusService  
   - nano /home/vagrant/k8sfiles/nexusService  
   - kubectl create -f /home/vagrant/k8sfiles/nexusService  
+  -  kubectl exec -n nexus -it <nexus_pod> -- /bin/bash      #login pod   
+   - cat /nexus-data/admin.password                          #get admin pwd  
+   - paste pwd on http://23.101.51.254:30001/nexus           #uname: admin  
   
